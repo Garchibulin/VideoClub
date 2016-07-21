@@ -13,7 +13,7 @@ import Entidades.Cliente;
  * @author Simon
  */
 public class Ejecutable {
- 
+
     public static void main(String args[]) {
         
         Cliente cliente;
@@ -31,8 +31,9 @@ public class Ejecutable {
         boolean ClienteInsertar = acceso.ClienteInsertar(cliente);
         
         System.out.println(ClienteInsertar);
-        
-        
+        System.out.println(cliente.getIdCliente());
+
+
     }
 
     
