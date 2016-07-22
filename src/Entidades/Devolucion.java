@@ -5,57 +5,25 @@
  */
 package Entidades;
 
-import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
+public class Devolucion {
 
-/**
- *
- * @author Simon
- */
-@Entity
-@Table(name = "tbl_devolucion")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Devolucion.findAll", query = "SELECT d FROM Devolucion d"),
-    @NamedQuery(name = "Devolucion.findByIdDevolucion", query = "SELECT d FROM Devolucion d WHERE d.idDevolucion = :idDevolucion"),
-    @NamedQuery(name = "Devolucion.findByNotas", query = "SELECT d FROM Devolucion d WHERE d.notas = :notas")})
-public class Devolucion implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "Id_Devolucion")
-    private Integer idDevolucion;
-    @Column(name = "Notas")
+    private int idDevolucion;
     private String notas;
-    @JoinColumn(name = "Id_Detalle_Alquiler", referencedColumnName = "Id_Detalle_Alquiler")
-    @ManyToOne(optional = false)
-    private DetalleAlquiler idDetalleAlquiler;
-    @JoinColumn(name = "Id_Tipo_Multa", referencedColumnName = "Id_Tipo_Multa")
-    @ManyToOne(optional = false)
-    private TipoMulta idTipoMulta;
+    private int idDetalleAlquiler;
+    private int idTipoMulta;
 
     public Devolucion() {
     }
 
-    public Devolucion(Integer idDevolucion) {
+    public Devolucion(int idDevolucion) {
         this.idDevolucion = idDevolucion;
     }
 
-    public Integer getIdDevolucion() {
+    public int getIdDevolucion() {
         return idDevolucion;
     }
 
-    public void setIdDevolucion(Integer idDevolucion) {
+    public void setIdDevolucion(int idDevolucion) {
         this.idDevolucion = idDevolucion;
     }
 
@@ -67,45 +35,29 @@ public class Devolucion implements Serializable {
         this.notas = notas;
     }
 
-    public DetalleAlquiler getIdDetalleAlquiler() {
-        return idDetalleAlquiler;
-    }
-
-    public void setIdDetalleAlquiler(DetalleAlquiler idDetalleAlquiler) {
-        this.idDetalleAlquiler = idDetalleAlquiler;
-    }
-
-    public TipoMulta getIdTipoMulta() {
-        return idTipoMulta;
-    }
-
-    public void setIdTipoMulta(TipoMulta idTipoMulta) {
+    public void setIdTipoMulta(int idTipoMulta) {
         this.idTipoMulta = idTipoMulta;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (idDevolucion != null ? idDevolucion.hashCode() : 0);
-        return hash;
+    /**
+     * @return the idDetalleAlquiler
+     */
+    public int getIdDetalleAlquiler() {
+        return idDetalleAlquiler;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Devolucion)) {
-            return false;
-        }
-        Devolucion other = (Devolucion) object;
-        if ((this.idDevolucion == null && other.idDevolucion != null) || (this.idDevolucion != null && !this.idDevolucion.equals(other.idDevolucion))) {
-            return false;
-        }
-        return true;
+    /**
+     * @param idDetalleAlquiler the idDetalleAlquiler to set
+     */
+    public void setIdDetalleAlquiler(int idDetalleAlquiler) {
+        this.idDetalleAlquiler = idDetalleAlquiler;
     }
 
-    @Override
-    public String toString() {
-        return "BaseDeDatos.Devolucion[ idDevolucion=" + idDevolucion + " ]";
+    /**
+     * @return the idTipoMulta
+     */
+    public int getIdTipoMulta() {
+        return idTipoMulta;
     }
-    
+
 }
