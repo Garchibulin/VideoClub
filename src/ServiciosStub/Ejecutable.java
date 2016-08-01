@@ -7,6 +7,7 @@ package ServiciosStub;
 
 import DataAccess.ClienteAccess;
 import Entidades.Cliente;
+import java.sql.SQLException;
 
 /**
  *
@@ -14,13 +15,13 @@ import Entidades.Cliente;
  */
 public class Ejecutable {
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws SQLException {
         
         Cliente cliente;
         cliente = new Cliente();
         
-        cliente.setNombre("Ariel");
-        cliente.setApellidos("Alvarez");
+        cliente.setNombre("Gabbito");
+        cliente.setApellidos("Garchitrue");
         cliente.setEmail("correo@servidor.com");
         cliente.setTelefono("666-666");
         cliente.setCedula("00-000-000-0");
